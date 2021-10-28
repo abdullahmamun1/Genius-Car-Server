@@ -78,6 +78,10 @@ app.get('/', (req, res) => {
     res.send('trying heroku')
 })
 
+app.get('/hello', (req, res) => {
+    res.send('hello updated');
+})
+
 app.listen(port, () => {
     console.log('listening to port ', port);
 })
