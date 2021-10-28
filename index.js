@@ -10,7 +10,7 @@ const cors = require('cors')
 const ObjectId = require('mongodb').ObjectId;
 
 const app = express()
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 
 app.use(cors())
@@ -55,7 +55,7 @@ async function run() {
             const result = await servicesCollection.insertOne(service)
             console.log(result);
 
-            res.json(result)
+            res.json(result);
         })
 
 
@@ -75,7 +75,7 @@ async function run() {
 run().catch(console.dir);
 
 app.get('/', (req, res) => {
-    res.send('server loaded')
+    res.send('trying heroku')
 })
 
 app.listen(port, () => {
